@@ -1,18 +1,21 @@
 package com.brunokrebs.querydsl.rest;
 
 import com.brunokrebs.querydsl.model.Brand;
+import com.brunokrebs.querydsl.repository.BrandRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class BrandRest {
+	@Autowired
+	private BrandRepository brandRepository;
 
 	@RequestMapping(path = "/brands/", method = RequestMethod.GET)
-	public List<Brand> getUser() {
-		return new ArrayList<>();
+	public List<Brand> getBrands() {
+		return brandRepository.getBrands();
 	}
 }
