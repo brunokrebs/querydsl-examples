@@ -26,4 +26,12 @@ public class BrandRepository {
 				.orderBy(brand.name.asc())
 				.fetch();
 	}
+
+	public List<Brand> getBrands(String root) {
+		QBrand brand = QBrand.brand;
+		return jpaQueryFactory.selectFrom(brand)
+				.where(brand.name.likeIgnoreCase('%' + root + '%'))
+				.orderBy(brand.name.asc())
+				.fetch();
+	}
 }
