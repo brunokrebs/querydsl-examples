@@ -1,12 +1,15 @@
 package com.brunokrebs.querydsl.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.persistence.*;
 
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Vehicle {
 	@Id
 	@GeneratedValue
-	private int id;
+	private Integer id;
 
 	@ManyToOne
 	@JoinColumn (name = "id_model")
@@ -14,7 +17,7 @@ public class Vehicle {
 
 	private String plate;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 

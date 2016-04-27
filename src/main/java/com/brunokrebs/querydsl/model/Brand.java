@@ -1,23 +1,22 @@
 package com.brunokrebs.querydsl.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Brand {
 	@Id
 	@GeneratedValue
-	private int id;
+	private Integer id;
 
 	private String name;
 
-	public long getId() {
+	public Integer getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getName() {

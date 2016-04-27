@@ -1,13 +1,16 @@
 package com.brunokrebs.querydsl.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.persistence.*;
 
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Model {
 
 	@Id
 	@GeneratedValue
-	private int id;
+	private Integer id;
 
 	@ManyToOne
 	@JoinColumn (name = "id_brand")
@@ -15,7 +18,7 @@ public class Model {
 
 	private String name;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
